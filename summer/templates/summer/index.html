@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+    <title>出入库管理系统</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        select {
+            border: 1px solid #ccc;
+            padding: 7px 0px;
+            border-radius: 3px;
+            {#padding-left: 5px;#}
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+        }
+
+        input {
+            border: 1px solid #ccc;
+            padding: 7px 0px;
+            border-radius: 3px;
+            {#padding-left: 5px;#}
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+        }
+
+        input:focus {
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)
+        }
+
+        /* Table Head */
+        table thead th {
+            background-color: rgb(81, 130, 187);
+            color: #fff;
+            border-bottom-width: 0;
+        }
+
+        /* Column Style */
+        table td {
+            color: #000;
+        }
+
+        /* Heading and Column Style */
+        table tr, table th {
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgb(81, 130, 187);
+        }
+
+        /* Padding and font style */
+        table td, table th {
+            padding: 5px 10px;
+            font-size: 12px;
+            font-family: Verdana;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+{#{% for good in goods %}#}
+{#    <a href = "{% url 'summer:show' good.id %}">{{ good.gname }}</a>#}
+{#    <br>#}
+{#{% endfor %}#}
+<div id="menu" style="float: left;width: 100%;height: 100%"; >
+    <h2 style="text-align: center">库存管理系统</h2>
+    <a href="../storage/"><h3 style="text-align: center">库存查询</h3></a>
+    <a href="../in/"><h3 style="text-align: center">入库</h3></a>
+    <a href="../out/"><h3 style="text-align: center">出库</h3></a>
+    <a href="../record/"><h3 style="text-align: center">出入库记录查询</h3></a>
+</div>
+</body>
+</html>

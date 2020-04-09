@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="UTF-8">
+    <title>库存查询</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        select {
+            border: 1px solid #ccc;
+            padding: 7px 0px;
+            border-radius: 3px;
+            {#padding-left: 5px;#}
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+        }
+
+        input {
+            border: 1px solid #ccc;
+            padding: 7px 0px;
+            border-radius: 3px;
+            {#padding-left: 5px;#}
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+        }
+
+        input:focus {
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)
+        }
+
+        /* Table Head */
+        table thead th {
+            background-color: rgb(81, 130, 187);
+            color: #fff;
+            border-bottom-width: 0;
+        }
+
+        /* Column Style */
+        table td {
+            color: #000;
+        }
+
+        /* Heading and Column Style */
+        table tr, table th {
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgb(81, 130, 187);
+        }
+
+        /* Padding and font style */
+        table td, table th {
+            padding: 5px 10px;
+            font-size: 12px;
+            font-family: Verdana;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div id="header">
+    <h1>库存查询</h1>
+</div>
+<div id="storage_add">
+    <h3>添加库存信息</h3>
+    <form action="{% url 'summer:storage_add' %}" , method="post">
+        {#<form action="/user/login/", method="post">  #}
+        {% csrf_token %}
+        <p>
+            <label>名称：</label>
+            <input type="text" id="user" placeholder="货物名称" name="name" required>
+        </p>
+        <input type="submit" value="确定" style=";text-align: center;width: 60px;height: 30px">
+    </form>
+    <p>提示信息:{{ message }}</p>
+</div>
+<div id="show">
+        <table border="1">
+            <tr>
+                <th>货物名称</th>
+                <th>总入库</th>
+                <th>总出库</th>
+            </tr>
+        {% for i in goods %}
+            <tr>
+                <td>{{ i.name }}</td>
+                <td>{{ i.number1 }}</td>
+                <td>{{ i.number2 }}</td>
+            </tr>
+         {% endfor %}
+        </table>
+</div>
+<div id="foot_menu" style="float: left"; >
+    <p style="text-align: center">底部菜单</p>
+    <a href="../index/">返回首页</a>
+    <a href="../storage/">库存查询</a>
+    <a href="../add/">入库</a>
+    <a href="../out/">出库</a>
+    <a href="../record/">出入库记录查询</a>
+</div>
+</body>
+</html>
